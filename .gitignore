@@ -30,7 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 .env*
 
 # vercel
@@ -39,3 +43,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Cloudinary local dirs / temp uploads
+uploads/
+
+./history
+/.history
+/history/
