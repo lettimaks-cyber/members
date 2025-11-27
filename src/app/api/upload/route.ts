@@ -54,13 +54,14 @@ export async function POST(req: NextRequest) {
       url: dataUrl,
       message: 'Image stored as base64 (for testing only)',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('❌ Upload error:', error);
     
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
       { 
         error: 'Upload failed', 
-        details: error.message || 'Unknown error',
+        details: errorMessage,
       },
       { status: 500 }
     );
